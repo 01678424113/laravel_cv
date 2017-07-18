@@ -14,3 +14,11 @@
 Route::get('/', function () {
     return view('welcome');
 });
+Route::group(['prefix'=>'admin'],function(){
+    Route::group(['prefix'=>'theloai'],function (){
+        Route::get('danhsach','TheLoaiController@getDanhsach');
+
+        Route::get('them','TheLoaiController@getThem');
+        Route::post('them','TheLoaiController@postThem');
+    });
+});
